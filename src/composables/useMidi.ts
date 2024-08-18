@@ -1,14 +1,7 @@
 import type { Input, MessageEvent, Output } from 'webmidi'
 import { Message, WebMidi } from 'webmidi'
 import { ref, watch } from 'vue'
-import { listMidiConnections } from '../utils/midi'
 import { type MidiMessage, MidiMessageType } from '../types/MidiMessage'
-
-listMidiConnections().then((connections) => {
-  console.log(connections)
-}).catch((e) => {
-  console.error(e)
-})
 
 function getDawMidiInput (): Input | null {
   return WebMidi.getInputByName('Virtual Midi Daw In') ?? null
