@@ -1,10 +1,10 @@
 <script setup lang="ts">
 
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
-import {IconProp} from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { type IconProp } from '@fortawesome/fontawesome-svg-core'
 
 interface Props {
-    icon: IconProp
+  icon: IconProp
 }
 
 const props = defineProps<Props>()

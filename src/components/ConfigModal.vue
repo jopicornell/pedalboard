@@ -1,42 +1,42 @@
 <script setup lang="ts">
-import {onMounted, ref} from "vue";
-import {useMidi} from "../composables/useMidi";
+import { onMounted, ref } from 'vue'
+import { useMidi } from '../composables/useMidi'
 
 const dialog = ref<HTMLDialogElement | null>(null)
 
 const {
-    dawMidiOutput,
-    midiOutputs,
-    dawMidiInput,
-    pedalMidiOutput,
-    pedalMidiInput,
-    midiInputs,
+  dawMidiOutput,
+  midiOutputs,
+  dawMidiInput,
+  pedalMidiOutput,
+  pedalMidiInput,
+  midiInputs
 } = useMidi()
 
 const open = async () => {
-    dialog.value?.showModal()
+  dialog.value?.showModal()
 }
 
 onMounted(() => {
-    dialog.value?.addEventListener('click', function (event) {
-        if (event.target === dialog.value) {
-            dialog.value?.close();
-        }
-    });
+  dialog.value?.addEventListener('click', function (event) {
+    if (event.target === dialog.value) {
+      dialog.value?.close()
+    }
+  })
 })
 
 const close = () => {
-    dialog.value?.close()
+  dialog.value?.close()
 }
 
 interface Expose {
-    open: () => void
-    close: () => void
+  open: () => Promise<void>
+  close: () => void
 }
 
 defineExpose<Expose>({
-    open,
-    close
+  open,
+  close
 })
 </script>
 
@@ -101,9 +101,7 @@ defineExpose<Expose>({
                     </select>
                 </div>
 
-                <hr />
-
-                <div class="flex items-center mt-5 mb-3 space-x-4">
+                <div class="hidden flex items-center mt-5 mb-3 space-x-4">
                     <input
                             class="inline-flex rounded-full"
                             type="checkbox"
@@ -125,7 +123,7 @@ defineExpose<Expose>({
                     ><br />
                 </div>
                 <div
-                        class="flex flex-row items-center justify-between p-5 dark:bg-gray-800 border border-gray-200 rounded shadow-sm"
+                        class="hidden flex flex-row items-center justify-between p-5 dark:bg-gray-800 border border-gray-200 rounded shadow-sm"
                 >
                     <div class="flex flex-row items-center">
                         <img
@@ -142,10 +140,9 @@ defineExpose<Expose>({
                 </div>
             </div>
             <div
-                    class="flex flex-row items-center justify-between p-5 dark:bg-gray-800 border-t dark:border-gray-700 rounded-bl-lg rounded-br-lg"
+                    class="flex flex-row items-center justify-end p-5 dark:bg-gray-800 border-t dark:border-gray-700 rounded-bl-lg rounded-br-lg"
             >
-                <p class="font-semibold dark:text-gray-200">Cancel</p>
-                <button class="px-4 py-2 text-white font-semibold bg-blue-500 rounded">
+                <button class="px-4 py-2 text-white font-semibold bg-blue-500 rounded" @click="close">
                     Save
                 </button>
             </div>

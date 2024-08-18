@@ -1,6 +1,6 @@
-import { Button } from "./Button";
+import { type Button } from './Button'
 
 export interface Bank {
-  name: string,
-  buttons: Button[],
+  name: string
+  buttons: Button[]
 }

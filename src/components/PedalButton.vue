@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import {Button} from "../types/Button";
+import { type Button } from '../types/Button'
 
-interface Emits {
-  (event: 'click', button: Button | undefined): void
-}
+type Emits = (event: 'click', button: Button | undefined) => void
 
 interface Props {
   button?: Button
