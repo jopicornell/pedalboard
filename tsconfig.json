@@ -7,16 +7,29 @@
     "moduleResolution": "Node",
     "strict": true,
     "jsx": "preserve",
+    "preserveSymlinks": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
     "skipLibCheck": true,
     "noEmit": true,
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": [
+        "./front/*"
+      ],
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "./src/**/*.vue", "vite.config.ts"],
+  "include": [
+    "front/**/*.ts",
+    "front/**/*.d.ts",
+    "front/**/*.vue",
+    "types/**/*.ts",
+    "api/**/*.ts",
+    "eslint.config.mjs",
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

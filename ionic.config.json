@@ -1,7 +1,0 @@
-{
-  "name": "pedalboard",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "vue-vite"
-}
